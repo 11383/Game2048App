@@ -1,6 +1,7 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Game2048App"
              x:Class="Game2048App.GameView"
              x:Name="gvRoot"
              BackgroundColor="Black"
@@ -8,11 +9,21 @@
              HorizontalOptions="FillAndExpand"
              SizeChanged="GvRoot_SizeChanged">
   <ContentView.Content>
-        <AbsoluteLayout VerticalOptions="Center" 
-                        HorizontalOptions="Center" 
-                        BackgroundColor="White"
-                        x:Name="gvContainer"
-                        >
-        </AbsoluteLayout>
+        <Grid x:Name="gvContainer" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <local:GameCell/>
+            <local:GameCell Grid.Column="1"/>
+            <local:GameCell Grid.Column="2" x:Name="gcTest"/>
+        </Grid>
   </ContentView.Content>
 </ContentView>

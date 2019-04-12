@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="Game2048App.GameCell"
+             >
+    <ContentView.Content>
+        <AbsoluteLayout x:Name="gcRoot">
+            <BoxView x:Name="bvTile"
+                     BackgroundColor="#d9cec5" 
+                     CornerRadius="10"
+                     AbsoluteLayout.LayoutBounds="0,0,1,1"
+                     AbsoluteLayout.LayoutFlags="All"
+                     />
+            
+            <Label x:Name="lbTile"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   TextColor="White"
+                   FontSize="Large"
+                   FontAttributes="Bold"
+                   Text="256"
+                   AbsoluteLayout.LayoutBounds="0,0,1,1"
+                   AbsoluteLayout.LayoutFlags="All"
+                   />
+        </AbsoluteLayout>
+    </ContentView.Content>
+</ContentView>
