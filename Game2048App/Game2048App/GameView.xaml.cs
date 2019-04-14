@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using GameLib;
 
 namespace Game2048App
 {
@@ -13,28 +14,53 @@ namespace Game2048App
 	public partial class GameView : ContentView
 	{
         private int padding = 10;
+        private int size;
+        private Game game;
+        private List<GameCell> gameCells = new List<GameCell>();
+
 		public GameView ()
 		{
 			InitializeComponent ();
+        }
 
-            //cell1
-            //var cell = new GameCell();
-            //AbsoluteLayout.SetLayoutBounds(cell, new Rectangle(0, 50, 1, 1));
+        public void Init (int size = 3)
+        {
+            this.size = size;
+            this.game = new Game((byte) size);
+            this.RenderBackground();
+            this.Render();
+        }
 
-            //cell2
-            //var cell2 = new GameCell();
-            //AbsoluteLayout.SetLayoutBounds(cell2, new Rectangle(52, 50, 1, 1));
+        private void RenderBackground()
+        {
+            for (int x = 0; x < size; x++)
+            {
+                for (int y = 0; y < size; y++)
+                {
+                    var cell = new GameCell("");
+                    gvContainer.Children.Add(cell, x, y);
+                }
+            }
+        }
 
-            //gvContainer.Children.Add(cell);
-            //gvContainer.Children.Add(cell2);
+        private void Render ()
+        {
+            gameCells.ForEach(cell => gvContainer.Children.Remove(cell));
 
-            var tapGestureRecognizer = new TapGestureRecognizer();
-            tapGestureRecognizer.Tapped += (s, e) => {
-                var cell = (GameCell)s;
-                cell.TranslateTo(0, 50, 1000, Easing.CubicInOut);
-            };
+            for (int x = 0; x < size; x++)
+            {
+                for (int y = 0; y < size; y++)
+                {
+                    var value = game.GameBoard[x, y];
 
-            gcTest.GestureRecognizers.Add(tapGestureRecognizer);
+                    if (value != 0)
+                    {
+                        var cell = new GameCell(value.ToString());
+                        gvContainer.Children.Add(cell, x, y);
+                        gameCells.Add(cell);
+                    }
+                }
+            }
         }
 
         private void GvRoot_SizeChanged(object sender, EventArgs e)

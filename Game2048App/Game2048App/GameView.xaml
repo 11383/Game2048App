@@ -21,9 +21,9 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             
-            <local:GameCell/>
-            <local:GameCell Grid.Column="1"/>
-            <local:GameCell Grid.Column="2" x:Name="gcTest"/>
+<!--            <local:GameCell/>-->
+<!--            <local:GameCell Grid.Column="1"/>-->
+<!--            <local:GameCell Grid.Column="2" x:Name="gcTest"/>-->
         </Grid>
   </ContentView.Content>
 </ContentView>

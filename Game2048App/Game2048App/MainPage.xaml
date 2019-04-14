@@ -10,7 +10,7 @@
            HorizontalOptions="Center"
            VerticalOptions="CenterAndExpand" />
 
-        <local:GameView/>
+        <local:GameView x:Name="gvMain"/>
     </StackLayout>
 
 </ContentPage>

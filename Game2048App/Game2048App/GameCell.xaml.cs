@@ -10,5 +10,26 @@ namespace Game2048App
         {
             InitializeComponent();
         }
+
+        public GameCell(String value = "")
+        {
+            InitializeComponent();
+            gcTile.Text = value;
+
+            bvTile.BackgroundColor = GetColor(value, "Background");
+            gcTile.TextColor = GetColor(value, "Text");
+        }
+
+        private Color GetColor(string value, string type)
+        {
+            try
+            {
+                return (Color)Application.Current.Resources[$"GameCell.{type}:{value}"];
+            }
+            catch (KeyNotFoundException)
+            {
+                return (Color)Application.Current.Resources[$"GameCell.{type}:0"];
+            }
+        }
     }
 }

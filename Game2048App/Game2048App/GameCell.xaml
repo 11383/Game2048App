@@ -12,13 +12,13 @@
                      AbsoluteLayout.LayoutFlags="All"
                      />
             
-            <Label x:Name="lbTile"
+            <Label x:Name="gcTile"
                    HorizontalTextAlignment="Center"
                    VerticalTextAlignment="Center"
                    TextColor="White"
                    FontSize="Large"
                    FontAttributes="Bold"
-                   Text="256"
+                   Text=""
                    AbsoluteLayout.LayoutBounds="0,0,1,1"
                    AbsoluteLayout.LayoutFlags="All"
                    />

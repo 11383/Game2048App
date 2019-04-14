@@ -12,6 +12,7 @@ namespace Game2048App
         public MainPage()
         {
             InitializeComponent();
+            gvMain.Init();
         }
     }
 }
