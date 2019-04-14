@@ -10,6 +10,12 @@
              SizeChanged="GvRoot_SizeChanged">
   <ContentView.Content>
         <Grid x:Name="gvContainer" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="White">
+            <Grid.GestureRecognizers>
+                <SwipeGestureRecognizer Direction="Up" Swiped="Handle_Swiped"/>
+                <SwipeGestureRecognizer Direction="Right" Swiped="Handle_Swiped"/>
+                <SwipeGestureRecognizer Direction="Down" Swiped="Handle_Swiped"/>
+                <SwipeGestureRecognizer Direction="Left" Swiped="Handle_Swiped"/>
+            </Grid.GestureRecognizers>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>

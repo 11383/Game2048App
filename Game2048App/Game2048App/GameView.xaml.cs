@@ -33,9 +33,9 @@ namespace Game2048App
 
         private void RenderBackground()
         {
-            for (int x = 0; x < size; x++)
+            for (int y = 0; y < size; y++)
             {
-                for (int y = 0; y < size; y++)
+                for (int x = 0; x < size; x++)
                 {
                     var cell = new GameCell("");
                     gvContainer.Children.Add(cell, x, y);
@@ -47,11 +47,11 @@ namespace Game2048App
         {
             gameCells.ForEach(cell => gvContainer.Children.Remove(cell));
 
-            for (int x = 0; x < size; x++)
+            for (int y = 0; y < size; y++)
             {
-                for (int y = 0; y < size; y++)
+                for (int x = 0; x < size; x++)
                 {
-                    var value = game.GameBoard[x, y];
+                    var value = game.GameBoard[y, x];
 
                     if (value != 0)
                     {
@@ -61,6 +61,27 @@ namespace Game2048App
                     }
                 }
             }
+        }
+
+        void Handle_Swiped(object sender, Xamarin.Forms.SwipedEventArgs e)
+        {
+            switch(e.Direction)
+            {
+                case SwipeDirection.Up:
+                    game.MoveTop();
+                    break;
+                case SwipeDirection.Right:
+                    game.MoveRight();
+                    break;
+                case SwipeDirection.Down:
+                    game.MoveBottom();
+                    break;
+                case SwipeDirection.Left:
+                    game.MoveLeft();
+                    break;
+            }
+
+            Render();
         }
 
         private void GvRoot_SizeChanged(object sender, EventArgs e)
