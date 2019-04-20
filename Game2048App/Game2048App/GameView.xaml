@@ -9,7 +9,7 @@
              HorizontalOptions="FillAndExpand"
              SizeChanged="GvRoot_SizeChanged">
   <ContentView.Content>
-        <Grid x:Name="gvContainer" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="White">
+        <Grid x:Name="gvContainer" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="White" RowSpacing="4" ColumnSpacing="4">
             <Grid.GestureRecognizers>
                 <SwipeGestureRecognizer Direction="Up" Swiped="Handle_Swiped"/>
                 <SwipeGestureRecognizer Direction="Right" Swiped="Handle_Swiped"/>
@@ -26,10 +26,6 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            
-<!--            <local:GameCell/>-->
-<!--            <local:GameCell Grid.Column="1"/>-->
-<!--            <local:GameCell Grid.Column="2" x:Name="gcTest"/>-->
         </Grid>
   </ContentView.Content>
 </ContentView>

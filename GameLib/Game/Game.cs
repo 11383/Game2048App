@@ -27,6 +27,7 @@ namespace GameLib
         public int Score => score.Score;
         public int Highscore => score.Highscore;
 
+        public int Size => size;
         public bool IsPlaying { get; private set; }
         public bool IsWin { get; private set; }
 

@@ -1,18 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
+using GameLib;
 
 namespace Game2048App
 {
     public partial class MainPage : ContentPage
     {
+        private Game game = new Game(3);
+
         public MainPage()
         {
             InitializeComponent();
-            gvMain.Init();
+            gvMain.Init(game);
         }
     }
 }
