@@ -64,7 +64,7 @@ namespace Game2048App
             }
             catch (KeyNotFoundException)
             {
-                return (Color)Application.Current.Resources[$"GameCell.{type}:0"];
+                return (Color)Application.Current.Resources[$"GameCell.{type}:fallback"];
             }
         }
     }

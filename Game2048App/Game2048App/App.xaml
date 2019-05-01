@@ -4,13 +4,21 @@
              x:Class="Game2048App.App">
     <Application.Resources>
         <ResourceDictionary>
-            <!--Fallback Color-->
-            <Color x:Key="GameCell.Background:0">#ccc2b5</Color>
-            <Color x:Key="GameCell.Text:0">#766d66</Color>
-            <!--Custom Colors-->
-            <Color x:Key="GameCell.Background:2">#efe4da</Color>
-            <Color x:Key="GameCell.Background:4">#ece0ca</Color>
+            <!--Tiles by value-->
+            <Color x:Key="GameCell.Background:">#c8bbad</Color>
             
+            <Color x:Key="GameCell.Background:2">#efe4da</Color>
+            <Color x:Key="GameCell.Text:2">#70685f</Color>
+            
+            <Color x:Key="GameCell.Background:4">#ecdec6</Color>
+            <Color x:Key="GameCell.Text:4">#76695f</Color>
+            
+            <Color x:Key="GameCell.Background:8">#ecac72</Color>
+            <Color x:Key="GameCell.Text:8">#f4ecdc</Color>
+            
+            <!--Fallback Color (gratter than 2048)-->
+            <Color x:Key="GameCell.Background:fallback">#464652</Color>
+            <Color x:Key="GameCell.Text:fallback">#e8e8e5</Color>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
