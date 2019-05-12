@@ -54,7 +54,7 @@ namespace Game2048App
             };
         }
 
-        private double Size() => gcTile.Width + 4; // width + grid spacing
+        private double Size() => gcTile.Width + 8; // width + grid spacing
 
         private Color GetColor(string value, string type)
         {

@@ -5,7 +5,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <!--Tiles by value-->
-            <Color x:Key="GameCell.Background:">#c8bbad</Color>
+            <Color x:Key="GameCell.Background:">#ccc1b5</Color>
             
             <Color x:Key="GameCell.Background:2">#efe4da</Color>
             <Color x:Key="GameCell.Text:2">#70685f</Color>

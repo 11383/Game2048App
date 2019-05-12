@@ -3,12 +3,12 @@ using GameLib;
 
 namespace Game2048App
 {
-    public partial class MainPage : ContentPage
+    public partial class GamePage : ContentPage
     {
-        private Game game = new Game(3);
-
-        public MainPage()
+        public GamePage(int gameSize = 3)
         {
+            Game game = new Game((byte) gameSize);
+
             InitializeComponent();
             gvMain.Init(game);
         }

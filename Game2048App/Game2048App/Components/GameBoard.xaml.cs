@@ -9,13 +9,13 @@ using static GameLib.GameBoard;
 namespace Game2048App
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class GameView : ContentView
+	public partial class GameBoard : ContentView
 	{
         private int padding = 10;
         private Game game;
         private GameCell[,] gameCells;
 
-		public GameView ()
+		public GameBoard ()
 		{
 			InitializeComponent ();
         }
@@ -23,10 +23,9 @@ namespace Game2048App
         public void Init (Game game)
         {
             this.game = game;
-            game.Restart();
             gameCells = new GameCell[game.Size, game.Size];
             RenderBackground();
-            Render();
+            RefreshView();
         }
 
         public void RenderAnimation()
@@ -89,6 +88,12 @@ namespace Game2048App
             }
         }
 
+        public void RefreshView ()
+        {
+            Render();
+            UpdateScore();
+        }
+
         private GameCell AddGameCell(int value, int x, int y)
         {
             GameCell gc = new GameCell(value.ToString());
@@ -111,6 +116,25 @@ namespace Game2048App
             gameCells = new GameCell[game.Size, game.Size];
         }
 
+        private void UpdateScore()
+        {
+            lScore.Text = game.Score.ToString();
+        }
+
+        void OnButtonRestart(object sender, System.EventArgs e)
+        {
+            game.Restart();
+            ClearComponent();
+            RefreshView();
+        }
+
+        void OnButtonUndo(object sender, System.EventArgs e)
+        {
+            game.Undo();
+            ClearComponent();
+            RefreshView();
+        }
+
         void Handle_Swiped(object sender, Xamarin.Forms.SwipedEventArgs e)
         {
             switch(e.Direction)
@@ -130,12 +154,14 @@ namespace Game2048App
             }
 
             RenderAnimation();
+            UpdateScore();
         }
 
         private void GvRoot_SizeChanged(object sender, EventArgs e)
         {
             var size = Math.Min(gvRoot.Width, gvRoot.Height);
-            gvContainer.WidthRequest = gvContainer.HeightRequest = size - (padding * 2);
+            gvContainerFrame.WidthRequest = gvContainer.HeightRequest = size - (padding * 2);
+            //gvContainer.WidthRequest = gvContainer.HeightRequest = size - (padding * 2);
         }
     }
 }

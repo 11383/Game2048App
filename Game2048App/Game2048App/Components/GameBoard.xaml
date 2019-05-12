@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Game2048App"
+             x:Class="Game2048App.GameBoard"
+             x:Name="gvRoot"
+             VerticalOptions="FillAndExpand"
+             HorizontalOptions="FillAndExpand"
+             SizeChanged="GvRoot_SizeChanged">
+  <ContentView.Content>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Restart" Clicked="OnButtonRestart"/>
+                <Button Text="Undo" Clicked="OnButtonUndo"/>
+                <Label x:Name="lScore" Text="0" TextColor="White"/>
+            </StackLayout>
+            <Frame 
+                   x:Name="gvContainerFrame"
+                   BackgroundColor="#bcaca0"
+                   CornerRadius="10"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   Margin="10"
+                   Padding="0"
+                > 
+                <Grid
+                      x:Name="gvContainer"
+                      Padding="8"
+                      RowSpacing="8"
+                      ColumnSpacing="8">
+                    <Grid.GestureRecognizers>
+                        <SwipeGestureRecognizer Direction="Up" Swiped="Handle_Swiped"/>
+                        <SwipeGestureRecognizer Direction="Right" Swiped="Handle_Swiped"/>
+                        <SwipeGestureRecognizer Direction="Down" Swiped="Handle_Swiped"/>
+                        <SwipeGestureRecognizer Direction="Left" Swiped="Handle_Swiped"/>
+                    </Grid.GestureRecognizers>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+            </Frame>
+        </StackLayout>
+  </ContentView.Content>
+</ContentView>

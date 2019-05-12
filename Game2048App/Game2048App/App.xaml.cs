@@ -12,9 +12,7 @@ namespace Game2048App
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
-            var game = new Game(4);
-            var board = game.GameBoard;
+            MainPage = new NavigationPage(new MenuPage());
         }
 
         protected override void OnStart()

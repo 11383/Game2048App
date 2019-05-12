@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+             x:Class="Game2048App.MenuPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <controls:CarouselViewControl
+                x:Name="cvMain"
+                Orientation="Horizontal"
+                InterPageSpacing="10"
+                VerticalOptions="FillAndExpand"
+                HorizontalOptions="FillAndExpand"
+                PositionSelected="OnCarouselPositionChanged"
+                BackgroundColor="#efe4da"
+                >
+                <controls:CarouselViewControl.ItemTemplate>
+                    <DataTemplate>
+                        <ContentView>
+                            <StackLayout VerticalOptions="Center">
+                                <Image Source="{Binding Source}"/>
+                                
+                                <Label Text="{Binding Name}"
+                                       Margin="20"
+                                       HorizontalTextAlignment="Center"
+                                       FontSize="Large"
+                                       TextColor="#70685f"
+                                       />
+                            </StackLayout>
+                        </ContentView>
+                    </DataTemplate>
+                </controls:CarouselViewControl.ItemTemplate>
+            </controls:CarouselViewControl>
+            
+            <Button Clicked="OnStartGame" Text="Start Game" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

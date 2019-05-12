@@ -2,15 +2,11 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Game2048App"
-             x:Class="Game2048App.MainPage">
+             x:Class="Game2048App.GamePage"
+             BackgroundColor="#efe4da">
 
     <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
-
-        <local:GameView x:Name="gvMain"/>
+        <local:GameBoard x:Name="gvMain"/>
     </StackLayout>
 
 </ContentPage>
