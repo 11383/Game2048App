@@ -18,6 +18,7 @@
     <Folder Include="Components\" />
     <Folder Include="Resources\" />
     <Folder Include="Models\" />
+    <Folder Include="MarkupExtensions\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Pages\GamePage.xaml.cs">
@@ -38,11 +39,13 @@
     <None Remove="Resources\grid-4x4.png" />
     <None Remove="Resources\grid-5x5.png" />
     <None Remove="Resources\repeat.png" />
+    <None Remove="Resources\undo.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\grid-3x3.png" />
     <EmbeddedResource Include="Resources\grid-4x4.png" />
     <EmbeddedResource Include="Resources\grid-5x5.png" />
     <EmbeddedResource Include="Resources\repeat.png" />
+    <EmbeddedResource Include="Resources\undo.png" />
   </ItemGroup>
 </Project>

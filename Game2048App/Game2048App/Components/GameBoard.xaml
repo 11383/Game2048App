@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:Game2048App"
+             xmlns:local="clr-namespace:Game2048App.MarkupExtensions; assembly=Game2048"
              x:Class="Game2048App.GameBoard"
              x:Name="gvRoot"
              VerticalOptions="FillAndExpand"
@@ -9,9 +9,18 @@
              SizeChanged="GvRoot_SizeChanged">
   <ContentView.Content>
         <StackLayout>
-            <StackLayout Orientation="Horizontal">
-                <Button Text="Restart" Clicked="OnButtonRestart"/>
-                <Button Text="Undo" Clicked="OnButtonUndo"/>
+            <StackLayout Orientation="Horizontal" Margin="0,0,0,40">
+                
+                <ImageButton Source="{local:ImageResource Game2048App.Resources.undo.png}" 
+                             Aspect="AspectFit"
+                             Clicked="OnButtonUndo"
+                             />
+                
+                <ImageButton Source="{local:ImageResource Game2048App.Resources.repeat.png}" 
+                             Aspect="AspectFit"
+                             Clicked="OnButtonRestart"
+                             />
+                
                 <Label x:Name="lScore" Text="0" TextColor="White"/>
             </StackLayout>
             <Frame 
@@ -20,7 +29,6 @@
                    CornerRadius="10"
                    VerticalOptions="Center"
                    HorizontalOptions="Center"
-                   Margin="10"
                    Padding="0"
                 > 
                 <Grid
