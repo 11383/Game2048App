@@ -22,6 +22,8 @@
                              />
                 
                 <Label x:Name="lScore" Text="0" TextColor="White"/>
+                
+                <Label x:Name="lHighscore" Text="0" TextColor="White"/>
             </StackLayout>
             <Frame 
                    x:Name="gvContainerFrame"

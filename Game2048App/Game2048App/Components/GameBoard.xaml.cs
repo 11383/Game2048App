@@ -14,6 +14,7 @@ namespace Game2048App
         private int padding = 10;
         private Game game;
         private GameCell[,] gameCells;
+        private bool endlessGameMode = false;
 
 		public GameBoard ()
 		{
@@ -26,6 +27,7 @@ namespace Game2048App
             gameCells = new GameCell[game.Size, game.Size];
             RenderBackground();
             RefreshView();
+            CheckGameState();
         }
 
         public void RenderAnimation()
@@ -119,6 +121,7 @@ namespace Game2048App
         private void UpdateScore()
         {
             lScore.Text = game.Score.ToString();
+            lHighscore.Text = game.Highscore.ToString();
         }
 
         void OnButtonRestart(object sender, System.EventArgs e)
@@ -155,13 +158,45 @@ namespace Game2048App
 
             RenderAnimation();
             UpdateScore();
+            CheckGameState();
+        }
+
+        async void CheckGameState ()
+        {
+            if (!game.IsPlaying && !game.IsWin)
+            {
+                bool retry = await Application.Current.MainPage.DisplayAlert("Game Over!", $"Your score {game.Score}", "Retry", "Cancel");
+
+                if (retry)
+                {
+                    game.Restart();
+                    RefreshView();
+                }
+                else
+                {
+                    await Navigation.PopAsync();
+                }
+            }
+            else if (game.IsWin && !endlessGameMode)
+            {
+                bool continueGame = await Application.Current.MainPage.DisplayAlert("You Win!", "Do you want to continue?", "Continue", "Restart");
+            
+                if (continueGame)
+                {
+                    endlessGameMode = true;
+                } else
+                {
+                    game.Restart();
+                    RefreshView();
+                }
+            }
+
         }
 
         private void GvRoot_SizeChanged(object sender, EventArgs e)
         {
             var size = Math.Min(gvRoot.Width, gvRoot.Height);
-            gvContainerFrame.WidthRequest = gvContainer.HeightRequest = size - (padding * 2);
-            //gvContainer.WidthRequest = gvContainer.HeightRequest = size - (padding * 2);
+            gvContainerFrame.WidthRequest = gvContainerFrame.HeightRequest = size - (padding * 2);
         }
     }
 }

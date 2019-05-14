@@ -46,6 +46,9 @@ namespace GameLib
 
             if (!Load()) {
                 Restart();
+            } else
+            {
+                this.IsPlaying = gameBoard.CanMove();
             }
         }
 

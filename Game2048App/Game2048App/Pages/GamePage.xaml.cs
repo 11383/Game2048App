@@ -7,7 +7,7 @@ namespace Game2048App
     {
         public GamePage(int gameSize = 3)
         {
-            Game game = new Game((byte) gameSize);
+            Game game = new Game((byte) gameSize, 2, 128);
 
             InitializeComponent();
             gvMain.Init(game);
